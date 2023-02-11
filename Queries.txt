@@ -1,0 +1,36 @@
+/* Query 1 */
+SELECT 
+track.Composer,
+count(distinct invoiceline.invoiceid) as invoices
+from track 
+join invoiceline 
+on track.TrackId = invoiceline.TrackId
+Where track.composer !='NULL'
+group by track.composer
+order by invoiceline.invoiceid
+limit 20
+
+/* Query 2 */
+select employee.firstname, Count(Distinct customer.customerid) AS unique_customers
+from Employee
+join Customer
+on employee.employeeid = customer.supportrepid
+group by employee.firstname
+
+/* Query 3 */
+Select customer.country, count(*) AS Customers
+From Customer
+Join Invoice
+On customer.customerid = invoice.customerid
+Where customer.country !='NULL'
+group by customer.country
+Order by Customers DESC
+Limit 5
+
+/* Query 4 */
+Select track.milliseconds, mediatype.name, Count(*)
+From Track
+Join Mediatype
+On track.mediatypeid = mediatype.mediatypeid
+group by mediatype.name
+order by track.milliseconds
