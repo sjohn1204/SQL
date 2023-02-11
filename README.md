@@ -1,2 +1,2 @@
 # SQL
-Written queries to connect and analyze data
+Written queries to collect and analyze data
